@@ -29,6 +29,7 @@ You need to install faker.js, and xpath to be able to run the test. Then you wil
 ..SoderbergTest\cypress\e2e\Tests\UI
 
 Structure
+
 I created a framework that contains 6 runner class for API, and 1 for UI.
 Inside the e2e\Tests\API folder, you can find the API tests which are created according to task.
 Inside the e2e\Tests\UI folder, you can find the UI tests which are created according to task.
@@ -36,5 +37,6 @@ The test has several parts such as: *Authorization, **Login, **Update, and *Veri
 Each Web Element locator has a corresponding method returning the elements.
 
 Limitations
+
 Username Issues:
 In the registration page for the UI, there is a "username" part. Even if I tried with unique usernames I got "Username already existed" error. I covered each possible scenarios such as not accepting more than 10 characters or something like that but each time I got the same error. So if you get the same, please just run the test one more time then it will be okay.
