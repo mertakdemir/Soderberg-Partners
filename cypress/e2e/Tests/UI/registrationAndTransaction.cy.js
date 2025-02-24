@@ -86,7 +86,6 @@ describe('Registration and Transaction Test', () => {
     // Open New Account
     cy.contains('Open New Account').click();
     cy.get('#type').select('SAVINGS');
-    cy.wait(2000)
     cy.get('[value="Open New Account"]').click();
     cy.contains('Account Opened').should('be.visible');
     
@@ -97,7 +96,6 @@ describe('Registration and Transaction Test', () => {
       // Navigate to Accounts Overview
       cy.contains('Accounts Overview').click();
       cy.contains(savingsAccount).click();
-      cy.wait(2000)
       cy.contains('Account Details').should('be.visible');
 
       // Transfer Funds - $10
