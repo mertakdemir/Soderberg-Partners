@@ -107,6 +107,6 @@ Each Web Element locator has a corresponding method returning the elements.
 Limitations
 
 Username Issues:
-In the registration page for the UI, there is a "username" part. Even if I tried with unique usernames I got "Username already existed" error. I covered each possible scenarios such as not accepting more than 10 characters or something like that but each time I got the same error. So if you get the same, please just run the test one more time then it will be okay.
+In the registration page for the UI, there is a "username" part. Even if I tried with unique usernames I got "Username already existed" error. I covered each possible scenarios such as not accepting more than 10 characters or something like that but each time I got the same error. So if you get the same, please just wait couple seconds then run the test one more time then it will be okay.
 
 I normally use Page Object Model in testing environments. Since there is not much test data for the API, I did not use it in those tests, but you can find a small summary of the use of the Page Object Model in my UI test.
