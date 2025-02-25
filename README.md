@@ -24,9 +24,13 @@ Setup
 -To get my Cypress project you can either have a zip.file or copy "https://github.com/mertakdemir/Soderberg-Partners.git" and open command prompt on your computer then write: git clone https://github.com/mertakdemir/Soderberg-Partners.git
 
 You need to install Mochawesome html report system, faker.js, and xpath to be able to run the test. Here is the how:
+
 For Mochawesome: 
+
 1-Open Terminal and copy that: "npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator"
+
 2-Then you need to update your cypress.config.js file like that:
+
  ------------
     const { defineConfig } = require("cypress");
 
