@@ -30,7 +30,7 @@ You need to install faker.js, and xpath to be able to run the test. Then you wil
 
 Structure
 
-I created a framework that contains 6 runner class for API, and 1 for UI.
+I used a Page Object Model that contains Web Element Locators for UI.
 Inside the e2e\Tests\API folder, you can find the API tests which are created according to task.
 Inside the e2e\Tests\UI folder, you can find the UI tests which are created according to task.
 The test has several parts such as: *Authorization, **Login, **Update, and *Verification of Uniqueness *Registration and Transaction.
@@ -40,3 +40,5 @@ Limitations
 
 Username Issues:
 In the registration page for the UI, there is a "username" part. Even if I tried with unique usernames I got "Username already existed" error. I covered each possible scenarios such as not accepting more than 10 characters or something like that but each time I got the same error. So if you get the same, please just run the test one more time then it will be okay.
+
+I normally use Page Object Model in testing environments. Since there is not much test data for the API, I did not use it in those tests, but you can find a small summary of the use of the Page Object Model in my UI test.
