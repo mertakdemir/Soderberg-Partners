@@ -23,7 +23,47 @@ Setup
 
 -To get my Cypress project you can either have a zip.file or copy "https://github.com/mertakdemir/Soderberg-Partners.git" and open command prompt on your computer then write: git clone https://github.com/mertakdemir/Soderberg-Partners.git
 
-You need to install faker.js, and xpath to be able to run the test. Then you will be ready to run the test:
+You need to install Mochawesome html report system, faker.js, and xpath to be able to run the test. Here is the how:
+For Mochawesome: 
+1-Open Terminal and copy that: "npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator"
+2-Then you need to update your cypress.config.js file like that:
+ ------------
+    const { defineConfig } = require("cypress");
+
+  module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+    reporter: "mochawesome",
+    reporterOptions: {
+      reportDir: "cypress/reports/mochawesome-report",
+      overwrite: false,
+      html: true,
+      json: true
+    }
+  }
+});  ------------------
+
+3- Open terminal again and copy: "npx cypress run"
+4- You have the reports now, but it needs to be in better format to be able to read them. To do that copy these 2 commands in queue:
+npx mochawesome-merge cypress/reports/mochawesome-report/*.json -o cypress/reports/mochawesome.json
+npx marge cypress/reports/mochawesome.json -o cypress/reports/html-report
+5-Now you have the mochawesome-report folder under reports folder
+6- You can right click on html report you want to check and click on "Open in Default Browser"
+
+For Faker.js:
+1-You need to open the terminal and copy: "npm install --save-dev @faker-js/faker"
+2- Now you have the Faker class and you just need to import it to your class : "import { faker } from '@faker-js/faker';"
+
+For xpath:
+1- Open terminal and copy: "npm install --save-dev cypress-xpath"
+2- Now you have the xpath and you only need to update your "cypress/support/e2e.js" file
+3-Open that file and copy this: "import 'cypress-xpath';"
+
+
+
+Then you will be ready to run the test:
 
 ..SoderbergTest\cypress\e2e\Tests\API
 ..SoderbergTest\cypress\e2e\Tests\UI
