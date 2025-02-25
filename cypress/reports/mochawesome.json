@@ -1,0 +1,588 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 13,
+    "passes": 13,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 13,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-02-25T09:32:28.669Z",
+    "end": "2025-02-25T09:33:06.075Z",
+    "duration": 37406
+  },
+  "results": [
+    {
+      "uuid": "32810666-e5f2-4deb-8aee-51dadb674b87",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario1Authentication.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario1Authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+          "title": "User Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Valid Authentication",
+              "fullTitle": "User Authentication Valid Authentication",
+              "timedOut": null,
+              "duration": 271,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: authenticationURL,\n  method: 'POST',\n  body: {\n    \"email\": \"eve.holt@reqres.in\",\n    \"password\": \"cityslicka\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('token');\n  expect(response.body.token).to.equal('QpwL5tke4Pnpja7X4');\n});",
+              "err": {},
+              "uuid": "d625a192-3b52-4aff-b242-1206cb7eb1b1",
+              "parentUUID": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Invalid Authentication",
+              "fullTitle": "User Authentication Invalid Authentication",
+              "timedOut": null,
+              "duration": 99,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: authenticationURL,\n  failOnStatusCode: false,\n  method: 'POST',\n  body: {\n    \"email\": \"peter@klaven\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body).to.have.property('error');\n  expect(response.body.error).to.equal('Missing password');\n});",
+              "err": {},
+              "uuid": "fea5c195-c90c-4db8-abdf-caa5b820312d",
+              "parentUUID": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d625a192-3b52-4aff-b242-1206cb7eb1b1",
+            "fea5c195-c90c-4db8-abdf-caa5b820312d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 370,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "6038a6e3-8216-486e-babc-4f0037caac1f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario2ValidateSpecificUser.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario2ValidateSpecificUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76da170f-d930-41c8-9cdf-a20a974e21ad",
+          "title": "Validate the specific user",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validation 01",
+              "fullTitle": "Validate the specific user Validation 01",
+              "timedOut": null,
+              "duration": 85,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: validateSpecificUserURL,\n  method: 'GET'\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('data');\n  expect(response.body.data.id).to.equal(2);\n  expect(response.body.data.email).to.equal('janet.weaver@reqres.in');\n  expect(response.body.data.first_name).to.equal('Janet');\n  expect(response.body.data.last_name).to.equal('Weaver');\n  expect(response.body.data.avatar).to.equal('https://reqres.in/img/faces/2-image.jpg');\n  expect(response.body).to.have.property('support');\n  expect(response.body.support.url).to.equal('https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral');\n  expect(response.body.support.text).to.equal('Tired of writing endless social media content? Let Content Caddy generate it for you.');\n});",
+              "err": {},
+              "uuid": "a8d4cf41-c181-443a-9e64-ae13181b9b5a",
+              "parentUUID": "76da170f-d930-41c8-9cdf-a20a974e21ad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a8d4cf41-c181-443a-9e64-ae13181b9b5a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 85,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ce6de9e8-e596-4c12-a994-21c146693954",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario3CreateUser.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario3CreateUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "70c53650-eb4e-4047-b762-fb0bc8f6fae4",
+          "title": "Create a user",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Creation",
+              "fullTitle": "Create a user User Creation",
+              "timedOut": null,
+              "duration": 128,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: userCreationURL,\n  method: 'POST',\n  body: {\n    \"name\": \"morpheus\",\n    \"job\": \"leader\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body.name).to.equal('morpheus');\n  expect(response.body.job).to.equal('leader');\n  expect(response.body).to.have.property('id');\n  const createdAt = response.body.createdAt;\n  const formattedDate = createdAt.split('T')[0].replace(/-/g, '/'); // YYYY-MM-DD -> YYYY/MM/DD\n  const expectedDate = new Date().toISOString().split('T')[0].replace(/-/g, '/'); // We are getting \"createdAt\" in this format: \"createdAt\": \"2025-02-22T08:33:07.664Z\" to make today's date in this format: \"YYYY/MM/DD\", I used \"split method\"\n  expect(formattedDate).to.equal(expectedDate); // Compare the dates\n});",
+              "err": {},
+              "uuid": "9112f80b-4263-4392-86e1-747fdf644bf0",
+              "parentUUID": "70c53650-eb4e-4047-b762-fb0bc8f6fae4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9112f80b-4263-4392-86e1-747fdf644bf0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 128,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "26458655-a427-4b01-a97c-ed260f415f22",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario4ValidatePagination.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario4ValidatePagination.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6d3f6932-c189-4c07-b260-50ad6af96980",
+          "title": "Validate Pagination",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verification of responses",
+              "fullTitle": "Validate Pagination Verification of responses",
+              "timedOut": null,
+              "duration": 76,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: validatePaginationURL2,\n  method: 'GET'\n}).then(response => {\n  expect(response.status).to.eq(200);\n  //Assert the number of users\n  const ids = response.body.data.map(user => user.id); //Gets the all Id's into a map container\n  const uniqueIds = new Set(ids); //To make sure each Id is unique, I putted all of them into a Set container\n  expect(uniqueIds.size).to.eq(6); // Assert that all of Id is unique. Since all of them are uniqe, if the assertion is true it will give us the correct number of users\n  //Assert if fields in the response contain accurate values\n  expect(response.body.per_page).to.equal(6);\n  expect(response.body.total_pages).to.equal(2);\n});",
+              "err": {},
+              "uuid": "7d27c403-0e95-44aa-be56-79cf694d8972",
+              "parentUUID": "6d3f6932-c189-4c07-b260-50ad6af96980",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "e5c33302-755e-4b6a-8977-3afabb5c5908",
+              "title": "Verify users on different pages are unique",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Fetches page 1 and page 2 and ensures users are unique",
+                  "fullTitle": "Validate Pagination Verify users on different pages are unique Fetches page 1 and page 2 and ensures users are unique",
+                  "timedOut": null,
+                  "duration": 113,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let page1UserIds = [];\nlet page2UserIds = [];\ncy.request('GET', validatePaginationURL1).then(response1 => {\n  //This is another format of usage for \"cy.request() method\"\n  expect(response1.status).to.eq(200);\n  page1UserIds = response1.body.data.map(user => user.id); // Get's the Id's from page 1 and puts them into a map container\n  cy.request('GET', validatePaginationURL2).then(response2 => {\n    expect(response2.status).to.eq(200);\n    page2UserIds = response2.body.data.map(user => user.id); // Get's the Id's from page 2 and puts them into a map container\n    const commonUsers = page1UserIds.filter(id => page2UserIds.includes(id));\n    expect(commonUsers.length).to.eq(0); // There shouldn't be same ID -> If it gives us 0 which means there is no common Id in those pages\n  });\n});",
+                  "err": {},
+                  "uuid": "254fc4e2-77fd-4bdc-b048-2897148dd625",
+                  "parentUUID": "e5c33302-755e-4b6a-8977-3afabb5c5908",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "254fc4e2-77fd-4bdc-b048-2897148dd625"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 113,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "7d27c403-0e95-44aa-be56-79cf694d8972"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 76,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "02a4a915-8c15-4d8e-9013-8c0d213451c9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario5UserValidation.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario5UserValidation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a33c1f39-9405-42ee-b76c-58f101f72e43",
+          "title": "Verify user details from list and individual request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ensures user with id 7 has the same details in both responses",
+              "fullTitle": "Verify user details from list and individual request Ensures user with id 7 has the same details in both responses",
+              "timedOut": null,
+              "duration": 218,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let userFromList = null;\n// Get the list of all users in page 2\ncy.request('GET', getUserDataListURL).then(response => {\n  expect(response.status).to.eq(200);\n  // Find the user whose id is 7\n  userFromList = response.body.data.find(user => user.id === 7);\n  expect(userFromList).to.not.be.undefined; // Verify that user:7 is exist\n  // Do the specific request for same user to get data\n  cy.request('GET', getSpecificUserDataURL).then(userResponse => {\n    expect(userResponse.status).to.eq(200);\n    const userFromRequest = userResponse.body.data;\n    // Assert that data's from different requests are same\n    expect(userFromRequest.id).to.equal(userFromList.id);\n    expect(userFromRequest.email).to.equal(userFromList.email);\n    expect(userFromRequest.first_name).to.equal(userFromList.first_name);\n    expect(userFromRequest.last_name).to.equal(userFromList.last_name);\n    expect(userFromRequest.avatar).to.equal(userFromList.avatar);\n    /*\n    Try to think any possible way of completing this task in a not correct way. This can be a couple of\n    paragraphs (just text).\n      1-) I would choose a non-exist user id and test that if I get error or 404 Not Found as a response\n        By the help of that, I would be sure that system works for only existing user id's.\n    \n    2-) I would also test to assert different user id's. I would get user 7 for the first part and user 8 for the second part\n        Then I would be able to do the assertion for different users, so I ll be sure that system can get the data for each user and \n        it can read it in a correct way. I can assert that those 2 data's from different users do not match. Otherwise it might be considered as a defect    \n    */\n  });\n});",
+              "err": {},
+              "uuid": "2e5d2cb5-8a92-498d-ac43-0c066e5209f5",
+              "parentUUID": "a33c1f39-9405-42ee-b76c-58f101f72e43",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2e5d2cb5-8a92-498d-ac43-0c066e5209f5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 218,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "351764a8-7056-4592-a8f6-98ccffb20644",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario6ValidationAcrossPages.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario6ValidationAcrossPages.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1dff687a-eb19-43be-92d1-a4451868ce85",
+          "title": "Validate User List Across Two Pages",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fetch and validate users from page 1",
+              "fullTitle": "Validate User List Across Two Pages Fetch and validate users from page 1",
+              "timedOut": null,
+              "duration": 76,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', validatePaginationURL1).then(response => {\n  expect(response.status).to.eq(200); // HTTP status check\n  expect(response.body).to.have.property('page', 1); // Page number check\n  expect(response.body).to.have.property('per_page'); // per_page field check\n  expect(response.body).to.have.property('total'); // total field check\n  // Save per_page and total values for later assertions\n  perPage = response.body.per_page;\n  totalUsers = response.body.total;\n  // Store user IDs for comparison\n  page1Users = response.body.data.map(user => user.id);\n});",
+              "err": {},
+              "uuid": "c500edef-540e-495a-a515-83907589084b",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fetch and validate users from page 2",
+              "fullTitle": "Validate User List Across Two Pages Fetch and validate users from page 2",
+              "timedOut": null,
+              "duration": 62,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', validatePaginationURL2).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('page', 2);\n  expect(response.body).to.have.property('per_page');\n  expect(response.body).to.have.property('total');\n  // Store user IDs for comparison\n  page2Users = response.body.data.map(user => user.id);\n});",
+              "err": {},
+              "uuid": "9ffb33d7-7b96-402a-a970-b654e9f0f175",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ensure no duplicate user IDs between page 1 and page 2",
+              "fullTitle": "Validate User List Across Two Pages Ensure no duplicate user IDs between page 1 and page 2",
+              "timedOut": null,
+              "duration": 7,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Find intersection between page 1 and page 2 users\nconst commonUsers = page1Users.filter(id => page2Users.includes(id));\nexpect(commonUsers.length).to.eq(0); // There should be no common users",
+              "err": {},
+              "uuid": "24a8e8ac-aacf-4981-b619-ba8f40cc53e8",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate per_page count matches total users",
+              "fullTitle": "Validate User List Across Two Pages Validate per_page count matches total users",
+              "timedOut": null,
+              "duration": 8,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(perPage * 2).to.eq(totalUsers); // Total users should match per_page * number of pages",
+              "err": {},
+              "uuid": "efa59c29-5038-4952-bcdd-9063ca1beabb",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c500edef-540e-495a-a515-83907589084b",
+            "9ffb33d7-7b96-402a-a970-b654e9f0f175",
+            "24a8e8ac-aacf-4981-b619-ba8f40cc53e8",
+            "efa59c29-5038-4952-bcdd-9063ca1beabb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 153,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "67f6a2c8-6b8c-4f62-9413-cce1d577e4b1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\UI\\registrationAndTransaction.cy.js",
+      "file": "cypress\\e2e\\Tests\\UI\\registrationAndTransaction.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "65d1765b-016a-4a2d-9a0f-1c4936008118",
+          "title": "Registration and Transaction Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registers a new user, updates profile, and logs out",
+              "fullTitle": "Registration and Transaction Test Registers a new user, updates profile, and logs out",
+              "timedOut": null,
+              "duration": 8572,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_ParaBankPage.default.baseURL);\n_ParaBankPage.default.registerButton.click();\n_ParaBankPage.default.customerForm.within(() => {\n  _ParaBankPage.default.firstNameField.type(user.firstName);\n  _ParaBankPage.default.lastNameField.type(user.lastName);\n  _ParaBankPage.default.addressField.type(user.address);\n  _ParaBankPage.default.cityField.type(user.city);\n  _ParaBankPage.default.stateField.type(user.state);\n  _ParaBankPage.default.zipCodeField.type(user.zipCode);\n  _ParaBankPage.default.phoneNumberField.type(user.phoneNumber);\n  _ParaBankPage.default.ssnField.type(user.ssn);\n  _ParaBankPage.default.usernameField.type(user.username);\n  _ParaBankPage.default.passwordField.type(user.password);\n  _ParaBankPage.default.repeatedPasswordField.type(user.password);\n});\n_ParaBankPage.default.registerSubmitButton.click();\n_ParaBankPage.default.registrationSuccessMessage.should('be.visible');\n// Navigate to Update Contact Info\n_ParaBankPage.default.updateContactInfo.click();\nconst updatedInfo = {\n  address: _faker.faker.location.streetAddress(),\n  city: _faker.faker.location.city(),\n  state: _faker.faker.location.state(),\n  zipCode: _faker.faker.location.zipCode(),\n  phoneNumber: _faker.faker.phone.number()\n};\n// Enter the updated info\n_ParaBankPage.default.updateCustomerAddressStreetField.clear().type(updatedInfo.address);\n_ParaBankPage.default.updateCustomerAddressCityField.clear().type(updatedInfo.city);\n_ParaBankPage.default.updateCustomerAddressStateField.clear().type(updatedInfo.state);\n_ParaBankPage.default.updateCustomerAddressZipCodeField.clear().type(updatedInfo.zipCode);\n_ParaBankPage.default.updateCustomerPhoneNumberField.clear().type(updatedInfo.phoneNumber);\n_ParaBankPage.default.updateProfileButton.click();\n_ParaBankPage.default.profileUpdatedMessage.should('be.visible');\n// Logout\n_ParaBankPage.default.logoutButton.click();\n_ParaBankPage.default.customerLogin.should('be.visible');",
+              "err": {},
+              "uuid": "d8bd1208-f366-4d76-a102-9b0e90fd1484",
+              "parentUUID": "65d1765b-016a-4a2d-9a0f-1c4936008118",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Opens account, performs fund transfers, and validates transactions",
+              "fullTitle": "Registration and Transaction Test Opens account, performs fund transfers, and validates transactions",
+              "timedOut": null,
+              "duration": 8208,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_ParaBankPage.default.baseURL);\n// Login\n_ParaBankPage.default.usernameLoginField.type(user.username);\n_ParaBankPage.default.passwordLoginField.type(user.password);\n_ParaBankPage.default.loginButton.click();\n_ParaBankPage.default.accountsOverview.should('be.visible');\n// Open New Account\n_ParaBankPage.default.openNewAccountButton.click();\n_ParaBankPage.default.accountTypeDropdown.select('SAVINGS');\ncy.wait(1000); //Sometimes there is a delay due to the website and the dropdown cannot be selected.\n//Therefore, a 1-second wait solved this error in the short term.\n_ParaBankPage.default.openAccountSubmitButton.click();\n_ParaBankPage.default.accountOpenedMessage.should('be.visible');\n// Get new account number\n_ParaBankPage.default.newAccountId.invoke('text').then(savingsAccount => {\n  cy.wrap(savingsAccount).as('savingsAccount');\n  // Navigate to Accounts Overview\n  _ParaBankPage.default.navigateToAccountsOverviewButton.click();\n  cy.contains(savingsAccount).click();\n  _ParaBankPage.default.accountDetailsPage.should('be.visible');\n  // Transfer Funds - $10\n  _ParaBankPage.default.transferFundsButton.click();\n  _ParaBankPage.default.amountField.type('10');\n  _ParaBankPage.default.fromAccountDropdown.select(savingsAccount);\n  _ParaBankPage.default.transferSubmitButton.click();\n  _ParaBankPage.default.transferCompleteMessage.should('be.visible');\n  // Transfer Funds - $25\n  _ParaBankPage.default.transferFundsButton.click();\n  _ParaBankPage.default.amountField.type('25');\n  _ParaBankPage.default.fromAccountDropdown.select(savingsAccount);\n  _ParaBankPage.default.transferSubmitButton.click();\n  _ParaBankPage.default.transferCompleteMessage.should('be.visible');\n  // Validate Transactions in Savings Account\n  _ParaBankPage.default.navigateToAccountsOverviewButton.click();\n  cy.contains(savingsAccount).click();\n  _ParaBankPage.default.accountDetailsPage.should('be.visible');\n  _ParaBankPage.default.verifyFirstTransaction.should('have.text', '$10.00');\n  _ParaBankPage.default.verifySecondTransaction.should('have.text', '$25.00');\n  //In case you see up here (line 118-122), cannot be counted as dynamic code.\n  //Because if developer changes the codes of table, then our code will broke.\n  //If we want to confirm that we did the transaction which cost 10$ and 25$ correctly,\n  //we can automate it like below.\n  //cy.get('#transactionTable tbody tr').contains('td', '$10.00') .should('exist');\n  //cy.get('#transactionTable tbody tr').contains('td', '$25.00') .should('exist');\n});",
+              "err": {},
+              "uuid": "99d24f03-f1d4-4579-a928-12107d97bef0",
+              "parentUUID": "65d1765b-016a-4a2d-9a0f-1c4936008118",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d8bd1208-f366-4d76-a102-9b0e90fd1484",
+            "99d24f03-f1d4-4579-a928-12107d97bef0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16780,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

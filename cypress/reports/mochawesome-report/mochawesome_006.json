@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-25T09:32:40.816Z",
+    "end": "2025-02-25T09:32:41.028Z",
+    "duration": 212,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "351764a8-7056-4592-a8f6-98ccffb20644",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario6ValidationAcrossPages.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario6ValidationAcrossPages.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1dff687a-eb19-43be-92d1-a4451868ce85",
+          "title": "Validate User List Across Two Pages",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fetch and validate users from page 1",
+              "fullTitle": "Validate User List Across Two Pages Fetch and validate users from page 1",
+              "timedOut": null,
+              "duration": 76,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', validatePaginationURL1).then(response => {\n  expect(response.status).to.eq(200); // HTTP status check\n  expect(response.body).to.have.property('page', 1); // Page number check\n  expect(response.body).to.have.property('per_page'); // per_page field check\n  expect(response.body).to.have.property('total'); // total field check\n  // Save per_page and total values for later assertions\n  perPage = response.body.per_page;\n  totalUsers = response.body.total;\n  // Store user IDs for comparison\n  page1Users = response.body.data.map(user => user.id);\n});",
+              "err": {},
+              "uuid": "c500edef-540e-495a-a515-83907589084b",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fetch and validate users from page 2",
+              "fullTitle": "Validate User List Across Two Pages Fetch and validate users from page 2",
+              "timedOut": null,
+              "duration": 62,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', validatePaginationURL2).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('page', 2);\n  expect(response.body).to.have.property('per_page');\n  expect(response.body).to.have.property('total');\n  // Store user IDs for comparison\n  page2Users = response.body.data.map(user => user.id);\n});",
+              "err": {},
+              "uuid": "9ffb33d7-7b96-402a-a970-b654e9f0f175",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ensure no duplicate user IDs between page 1 and page 2",
+              "fullTitle": "Validate User List Across Two Pages Ensure no duplicate user IDs between page 1 and page 2",
+              "timedOut": null,
+              "duration": 7,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Find intersection between page 1 and page 2 users\nconst commonUsers = page1Users.filter(id => page2Users.includes(id));\nexpect(commonUsers.length).to.eq(0); // There should be no common users",
+              "err": {},
+              "uuid": "24a8e8ac-aacf-4981-b619-ba8f40cc53e8",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate per_page count matches total users",
+              "fullTitle": "Validate User List Across Two Pages Validate per_page count matches total users",
+              "timedOut": null,
+              "duration": 8,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(perPage * 2).to.eq(totalUsers); // Total users should match per_page * number of pages",
+              "err": {},
+              "uuid": "efa59c29-5038-4952-bcdd-9063ca1beabb",
+              "parentUUID": "1dff687a-eb19-43be-92d1-a4451868ce85",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c500edef-540e-495a-a515-83907589084b",
+            "9ffb33d7-7b96-402a-a970-b654e9f0f175",
+            "24a8e8ac-aacf-4981-b619-ba8f40cc53e8",
+            "efa59c29-5038-4952-bcdd-9063ca1beabb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 153,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-25T09:32:29.961Z",
+    "end": "2025-02-25T09:32:30.368Z",
+    "duration": 407,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "32810666-e5f2-4deb-8aee-51dadb674b87",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Tests\\API\\scenario1Authentication.cy.js",
+      "file": "cypress\\e2e\\Tests\\API\\scenario1Authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+          "title": "User Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Valid Authentication",
+              "fullTitle": "User Authentication Valid Authentication",
+              "timedOut": null,
+              "duration": 271,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: authenticationURL,\n  method: 'POST',\n  body: {\n    \"email\": \"eve.holt@reqres.in\",\n    \"password\": \"cityslicka\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('token');\n  expect(response.body.token).to.equal('QpwL5tke4Pnpja7X4');\n});",
+              "err": {},
+              "uuid": "d625a192-3b52-4aff-b242-1206cb7eb1b1",
+              "parentUUID": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Invalid Authentication",
+              "fullTitle": "User Authentication Invalid Authentication",
+              "timedOut": null,
+              "duration": 99,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: authenticationURL,\n  failOnStatusCode: false,\n  method: 'POST',\n  body: {\n    \"email\": \"peter@klaven\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body).to.have.property('error');\n  expect(response.body.error).to.equal('Missing password');\n});",
+              "err": {},
+              "uuid": "fea5c195-c90c-4db8-abdf-caa5b820312d",
+              "parentUUID": "68bd5430-d6d1-4a6a-905b-5a520436e79b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d625a192-3b52-4aff-b242-1206cb7eb1b1",
+            "fea5c195-c90c-4db8-abdf-caa5b820312d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 370,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
